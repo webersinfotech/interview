@@ -32,9 +32,13 @@ class MongoDB {
     }
 
     async _makeConnection() {
+        const that = this;
         return new Promise((res, rej) => {
-            mongoose.connect(`${host}:${port}/${database}`, {useNewUrlParser: true}, (err, result) => {
-                if(err) rej(err);
+            mongoose.connect(`${host}:${port}/${database}`, {useNewUrlParser: true}, async (err, result) => {
+                if(err) {
+                    console.error('Failed to connect to mongo on startup - retrying in 1 sec', err);
+                    setTimeout(await this._makeConnection(), 1000);
+                }
                 res(result);
             })
         })

@@ -29,6 +29,7 @@ class Elasticsearch {
     // This is private member of object so starting with underscore
     _makeRequest(operation, method, index, document = '') {
         return new Promise((res, rej) => {
+            console.log(`${host}/${index}/${operation}`)
             const options = {
                 'method': method,
                 'url': `${host}/${index}/${operation}`,

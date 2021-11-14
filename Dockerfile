@@ -1,6 +1,6 @@
 FROM node:17.1-alpine3.12
 
-WORKDIR ./dockerlearn
+WORKDIR .
 
 COPY package*.json ./
 
