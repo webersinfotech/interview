@@ -35,7 +35,7 @@ const databases = {
     }
 }
 
-const currentDB = 'mongodb' // Possible input elasticsearch, mongodb, mysql, redis
+const currentDB = 'mysql' // Possible input elasticsearch, mongodb, mysql, redis
 
 const port = 3000
 
